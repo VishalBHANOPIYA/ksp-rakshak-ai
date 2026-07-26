@@ -54,7 +54,11 @@ export default function App() {
       .finally(() => {
         // Load initial Graph Data
         fetchEntityKnowledgeGraph('STN_PEENYA', 2)
-          .then(res => setGraphData(res))
+          .then(res => {
+            if (res && res.nodes && res.edges) {
+              setGraphData(res);
+            }
+          })
           .catch(err => console.error(err));
 
         // Load Analytics Data
@@ -64,12 +68,12 @@ export default function App() {
 
         // Load FIR List
         fetchFIRCases({ page: 1, page_size: 15 })
-          .then(res => setFirCasesList(res.items || []))
+          .then(res => setFirCasesList(Array.isArray(res?.items) ? res.items : []))
           .catch(err => console.error(err));
 
         // Load Audit Trail
         fetchAuditLogs(20)
-          .then(res => setAuditLogsList(res || []))
+          .then(res => setAuditLogsList(Array.isArray(res) ? res : []))
           .catch(err => console.error(err));
       });
   }, []);

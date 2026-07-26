@@ -24,7 +24,7 @@ export const CytoscapeGraph: React.FC<CytoscapeGraphProps> = ({
     const elements: cytoscape.ElementDefinition[] = [];
 
     // Convert graph nodes
-    graphData.nodes.forEach(n => {
+    (graphData.nodes || []).forEach(n => {
       elements.push({
         data: {
           id: n.id,
@@ -36,7 +36,7 @@ export const CytoscapeGraph: React.FC<CytoscapeGraphProps> = ({
     });
 
     // Convert graph edges
-    graphData.edges.forEach((e, idx) => {
+    (graphData.edges || []).forEach((e, idx) => {
       elements.push({
         data: {
           id: `e_${idx}_${e.source}_${e.target}`,
@@ -197,7 +197,7 @@ export const CytoscapeGraph: React.FC<CytoscapeGraphProps> = ({
         <div className="flex items-center gap-2 text-police-highlight">
           <Network className="w-4 h-4" />
           <span className="font-bold uppercase tracking-wider text-xs">PALANTIR GOTHAM LINK ANALYSIS</span>
-          <span className="text-[10px] text-police-muted">({graphData.nodes.length} Nodes • {graphData.edges.length} Edges)</span>
+          <span className="text-[10px] text-police-muted">({(graphData.nodes || []).length} Nodes • {(graphData.edges || []).length} Edges)</span>
         </div>
 
         {/* Search Bar */}
