@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { Search, Shield, FileText, Network, MapPin, X, CornerDownLeft, Sparkles } from 'lucide-react';
+import { Search, X, CornerDownLeft } from 'lucide-react';
 
 interface CommandPaletteProps {
   isOpen: boolean;
