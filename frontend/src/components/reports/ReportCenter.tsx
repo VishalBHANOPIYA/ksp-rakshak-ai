@@ -135,9 +135,9 @@ export const ReportCenter: React.FC = () => {
 
         {/* Historical Generated Reports List */}
         <div className="space-y-2 flex-1">
-          <h3 className="text-[10px] font-mono font-bold text-police-muted uppercase tracking-wider">SAVED REPORTS ({reports.length})</h3>
+          <h3 className="text-[10px] font-mono font-bold text-police-muted uppercase tracking-wider">SAVED REPORTS ({(reports || []).length})</h3>
           <div className="space-y-2">
-            {reports.map(rpt => (
+            {(reports || []).map(rpt => (
               <button
                 key={rpt.id}
                 onClick={() => loadReportDetail(rpt.id)}

@@ -172,7 +172,7 @@ export const ChatTerminal: React.FC<ChatTerminalProps> = ({
 
       {/* Messages Canvas Workspace */}
       <div className="flex-1 overflow-y-auto p-4 space-y-6">
-        {messages.length === 0 ? (
+        {(messages || []).length === 0 ? (
           <div className="h-full flex flex-col items-center justify-center text-center p-6 space-y-6">
             <div className="w-16 h-16 rounded-2xl bg-police-accent/20 border border-police-highlight flex items-center justify-center text-police-highlight shadow-2xl shadow-police-accent/30 animate-pulse">
               <Shield className="w-8 h-8" />
@@ -308,7 +308,7 @@ export const ChatTerminal: React.FC<ChatTerminalProps> = ({
                     {msg.citations && msg.citations.length > 0 && (
                       <div className="space-y-2">
                         <div className="text-[10px] font-mono font-bold text-police-muted uppercase tracking-wider">
-                          VERIFIED SOURCE CITATIONS ({msg.citations.length})
+                          VERIFIED SOURCE CITATIONS ({(msg.citations || []).length})
                         </div>
                         <div className="flex flex-wrap gap-2">
                           {msg.citations.map((citation, idx) => (

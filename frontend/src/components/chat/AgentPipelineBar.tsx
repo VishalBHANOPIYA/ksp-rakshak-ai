@@ -29,7 +29,7 @@ export const AgentPipelineBar: React.FC<AgentPipelineBarProps> = ({
     { id: 'verifier', name: 'Zero-Hallucination', agent: 'EvidenceVerifier', status: 'completed', executionTimeMs: 6 }
   ];
 
-  const stepsToRender = activeAgents.length > 0 ? activeAgents : defaultSteps;
+  const stepsToRender = (activeAgents && activeAgents.length > 0) ? activeAgents : defaultSteps;
 
   return (
     <div className="bg-police-dark/90 backdrop-blur-md border-b border-police-border/80 px-4 py-2.5 flex items-center justify-between text-xs font-mono select-none shadow-lg">

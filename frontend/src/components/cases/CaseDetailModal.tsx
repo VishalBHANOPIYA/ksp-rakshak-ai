@@ -87,7 +87,7 @@ export const CaseDetailModal: React.FC<CaseDetailModalProps> = ({ firId, onClose
             {/* Accused List */}
             {caseData.accused_list?.length > 0 && (
               <div className="space-y-2">
-                <h3 className="text-xs font-bold font-mono text-police-muted uppercase tracking-wider">Accused Individuals ({caseData.accused_list.length})</h3>
+                <h3 className="text-xs font-bold font-mono text-police-muted uppercase tracking-wider">Accused Individuals ({(caseData.accused_list || []).length})</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {caseData.accused_list.map((acc: any) => (
                     <div key={acc.accused_id} className="p-3 bg-police-dark/60 rounded-xl border border-police-border text-xs flex items-center justify-between">
