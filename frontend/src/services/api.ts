@@ -12,6 +12,17 @@ export const api = axios.create({
   },
 });
 
+api.interceptors.response.use(
+  (response) => {
+    const contentType = response.headers?.['content-type'] || '';
+    if (typeof response.data === 'string' || contentType.includes('text/html')) {
+      return Promise.reject(new Error('Received non-JSON response — request likely hit the wrong host (check VITE_API_BASE_URL).'));
+    }
+    return response;
+  },
+  (error) => Promise.reject(error)
+);
+
 // Set bearer token for authenticated requests
 export const setAuthToken = (token: string | null) => {
   if (token) {
