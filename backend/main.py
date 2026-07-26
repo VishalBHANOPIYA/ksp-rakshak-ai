@@ -20,6 +20,18 @@ app = FastAPI(
     description="Intelligent Conversational AI & Graph-RAG Platform for Karnataka State Police Datathon 2026"
 )
 
+@app.on_event("startup")
+def auto_seed_on_startup():
+    from app.db.database import SessionLocal
+    from app.models.domain import PoliceStation
+    db = SessionLocal()
+    try:
+        if db.query(PoliceStation).count() == 0:
+            from seed import seed_database
+            seed_database()
+    finally:
+        db.close()
+
 # CORS configuration
 app.add_middleware(
     CORSMiddleware,
@@ -71,5 +83,7 @@ def health_check():
     }
 
 if __name__ == "__main__":
+    import os
     import uvicorn
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    listen_port = int(os.getenv("X_ZOHO_CATALYST_LISTEN_PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=listen_port)
