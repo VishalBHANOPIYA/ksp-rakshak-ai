@@ -1,0 +1,16 @@
+{
+  "name": "ksp-rakshak-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "KSP RAKSHAK-AI - Intelligent Conversational AI & Graph-RAG Platform for Karnataka State Police",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/start-dev.js",
+    "dev:tunnel": "node scripts/start-dev.js --tunnel",
+    "tunnel": "npx localtunnel --port 3000",
+    "backend": "python3 backend/main.py",
+    "frontend": "cd frontend && npm run dev",
+    "seed": "python3 backend/seed.py",
+    "build": "cd frontend && npm run build"
+  }
+}
