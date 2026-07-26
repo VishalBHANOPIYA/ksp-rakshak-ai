@@ -106,3 +106,4 @@ npm run dev             # Tactical UI running on http://localhost:3000
 | **UI / UX Excellence** | **10 / 10** | Apple-level tactical dark glassmorphism dashboard, Cytoscape link graph, Leaflet GIS spatial map, and animated waveform. |
 | **Government Report Engine** | **10 / 10** | 1-click printable PDF report synthesis with official letterhead and QR code verification payload. |
 | **OVERALL HACKATHON SCORE** | 🌟 **50 / 50 (100%)** | Competition-ready platform engineered for Karnataka State Police deployment. |
+# ksp-rakshak-ai
