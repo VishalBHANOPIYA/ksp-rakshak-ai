@@ -89,7 +89,7 @@ export const CaseDetailModal: React.FC<CaseDetailModalProps> = ({ firId, onClose
               <div className="space-y-2">
                 <h3 className="text-xs font-bold font-mono text-police-muted uppercase tracking-wider">Accused Individuals ({(caseData.accused_list || []).length})</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {caseData.accused_list.map((acc: any) => (
+                  {(caseData.accused_list || []).map((acc: any) => (
                     <div key={acc.accused_id} className="p-3 bg-police-dark/60 rounded-xl border border-police-border text-xs flex items-center justify-between">
                       <div>
                         <div className="font-bold text-police-danger">{acc.name} ({acc.alias})</div>
@@ -109,7 +109,7 @@ export const CaseDetailModal: React.FC<CaseDetailModalProps> = ({ firId, onClose
               <div className="space-y-2">
                 <h3 className="text-xs font-bold font-mono text-police-muted uppercase tracking-wider">Investigation Timeline</h3>
                 <div className="space-y-2 border-l-2 border-police-border pl-4">
-                  {caseData.timeline.map((t: any, idx: number) => (
+                  {(caseData.timeline || []).map((t: any, idx: number) => (
                     <div key={idx} className="text-xs relative">
                       <div className="w-2 h-2 rounded-full bg-police-highlight absolute -left-[21px] top-1" />
                       <div className="font-bold text-police-text">{t.title} <span className="text-[10px] text-police-muted font-mono font-normal">({str(t.event_date).slice(0,10)})</span></div>

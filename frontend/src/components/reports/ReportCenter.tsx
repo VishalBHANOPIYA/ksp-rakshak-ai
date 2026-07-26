@@ -249,7 +249,7 @@ export const ReportCenter: React.FC = () => {
                   3. Bharatiya Nyaya Sanhita (BNS) & IPC Legal Sections
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono">
-                  {selectedReport.bns_ipc_mappings.map((m: any, idx: number) => (
+                  {(selectedReport.bns_ipc_mappings || []).map((m: any, idx: number) => (
                     <div key={idx} className="p-2.5 bg-slate-800/80 rounded-lg border border-slate-700 flex items-center justify-between">
                       <span className="font-bold text-slate-200">{m.fir_no}</span>
                       <div className="text-[11px] text-right">

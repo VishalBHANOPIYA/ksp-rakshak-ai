@@ -216,7 +216,7 @@ export const ChatTerminal: React.FC<ChatTerminalProps> = ({
             </div>
           </div>
         ) : (
-          messages.map((msg) => {
+          (messages || []).map((msg) => {
             const isUser = msg.sender === 'user';
             return (
               <div
@@ -291,7 +291,7 @@ export const ChatTerminal: React.FC<ChatTerminalProps> = ({
                           BHARATIYA NYAYA SANHITA (BNS) & IPC SECTION COMPLIANCE
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono">
-                          {msg.bnsMappings.map((m, idx) => (
+                          {(msg.bnsMappings || []).map((m, idx) => (
                             <div key={idx} className="p-2 bg-police-card rounded-lg border border-police-border/60 flex items-center justify-between">
                               <span className="text-police-muted">{m.firNo}</span>
                               <div className="text-right">
@@ -311,7 +311,7 @@ export const ChatTerminal: React.FC<ChatTerminalProps> = ({
                           VERIFIED SOURCE CITATIONS ({(msg.citations || []).length})
                         </div>
                         <div className="flex flex-wrap gap-2">
-                          {msg.citations.map((citation, idx) => (
+                          {(msg.citations || []).map((citation, idx) => (
                             <CitationBadge
                               key={idx}
                               citation={citation}

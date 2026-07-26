@@ -264,7 +264,7 @@ export default function App() {
                 <span className="text-police-gold font-bold">10 STATIONS INDEXED</span>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                {firCasesList.map(fir => (
+                {(firCasesList || []).map(fir => (
                   <div
                     key={fir.id}
                     onClick={() => setActiveCaseModalId(fir.id)}
@@ -340,7 +340,7 @@ export default function App() {
                     </tr>
                   </thead>
                   <tbody>
-                    {auditLogsList.map(log => (
+                    {(auditLogsList || []).map(log => (
                       <tr key={log.id} className="border-b border-police-border/40 hover:bg-police-border/20">
                         <td className="p-3 text-police-muted">{String(log.timestamp).slice(0, 19)}</td>
                         <td className="p-3 font-semibold text-police-text">{log.user_name}</td>
