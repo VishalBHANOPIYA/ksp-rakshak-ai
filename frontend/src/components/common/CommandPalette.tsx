@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import { Search, X, CornerDownLeft } from 'lucide-react';
 
 interface CommandPaletteProps {
